@@ -1,0 +1,149 @@
+typst.toml
+  h_745d560834e283 5
+  s_e62a851657e136::t_c10e3a6ca0dbf6 2,7,9-12
+.github/workflows/ci.yml
+  s_e62a851657e136::t_cf40fb50329873 1-40
+.gitignore
+  s_e62a851657e136::t_2fceb99882740f 2-3
+CONTEXT.md
+  s_e62a851657e136::t_b5d74faeea1d17 1-9
+CONTRIBUTING.md
+  s_e62a851657e136::t_40433b21f2ea84 1-53
+DESIGN.md
+  s_e62a851657e136::t_dd06b3c6b33aef 1-22
+Makefile
+  s_e62a851657e136::t_c76a8181509c67 1-15
+PLAN.md
+  s_e62a851657e136::t_e5bbbe08bc69e9 1-11
+README.md
+  s_e62a851657e136::t_e3ea277d602350 1-131
+docs/API.md
+  s_e62a851657e136::t_ac70918aa6cad8 1-104
+docs/METHODOLOGY.md
+  s_e62a851657e136::t_bcf44a68f034b3 1-35
+docs/site/assets/components.svg
+  s_e62a851657e136::t_dff6427abfe7a3 1
+docs/site/assets/espresso.pdf
+  s_e62a851657e136::t_c4b841be1b4e28 1-550
+docs/site/assets/espresso.svg
+  s_e62a851657e136::t_2de285b6bdeb34 1
+docs/site/assets/favicon.svg
+  s_e62a851657e136::t_5796d724286a2f 1
+docs/site/assets/logo.svg
+  s_e62a851657e136::t_f7c9b24ba54478 1
+docs/site/assets/revisions.pdf
+  s_e62a851657e136::t_44e92a9bccb362 1-612
+docs/site/assets/revisions.svg
+  s_e62a851657e136::t_d4cc4d5970e2ee 1
+docs/site/index.html
+  s_e62a851657e136::t_32fde9030ee072 1-125
+docs/site/site.js
+  s_e62a851657e136::t_9e65eab4a92722 1-43
+docs/site/style.css
+  s_e62a851657e136::t_75dff53eb6e054 1-157
+examples/COFFEE.md
+  s_e62a851657e136::t_d2ab817b80f297 1-54
+examples/coffee-data.typ
+  s_e62a851657e136::t_ba82c5bc2a3a8f 1-97
+examples/components.typ
+  s_e62a851657e136::t_841d668e791398 1-11
+examples/espresso.typ
+  s_e62a851657e136::t_64ddfaca9c0e3d 1-11
+examples/minimal.typ
+  s_e62a851657e136::t_1591888df5aa4d 1-16
+examples/profiles.typ
+  s_e62a851657e136::t_112c989322f946 1-15
+examples/report.typ
+  s_e62a851657e136::t_b8cc6a330d9f46 1-44
+examples/revisions.typ
+  s_e62a851657e136::t_73bed635ccb080 1-11
+fonts/LICENSE-IBMPlexSansVar.txt
+  s_e62a851657e136::t_5a7f50ca05fbcb 1-92
+fonts/LICENSE-IBMPlexSerifVar.txt
+  s_e62a851657e136::t_e42486aca48b10 1-92
+fonts/README.md
+  s_e62a851657e136::t_dae2b42570a545 1-9
+lib.typ
+  s_e62a851657e136::t_9058bdf77582c1 1-6
+src/calculations.typ
+  s_e62a851657e136::t_bdc5e99201f327 1-33
+src/change-display.typ
+  s_e62a851657e136::t_6b45af0122897c 1-18
+src/comparison-panel.typ
+  s_e62a851657e136::t_ecb0b40b61db24 1-54
+src/draw.typ
+  s_e62a851657e136::t_67c1b43406d882 1-14,16-19,23-30,32-52,56-62,65-74,76
+src/figure-data.typ
+  s_e62a851657e136::t_b14cdc0d8eb2a5 1-102
+src/labels.typ
+  s_e62a851657e136::t_73fa1e76a72e74 1-13
+src/layout.typ
+  s_e62a851657e136::t_e5429cc3f49dc6 1-62
+src/legend.typ
+  s_e62a851657e136::t_3f929a97aec7e9 1-49
+src/matrix-panel.typ
+  s_e62a851657e136::t_e88f4a127eb2a8 1-90
+src/model.typ
+  s_e62a851657e136::t_e432ea1d7fe224 1,57,80
+src/profile-layout.typ
+  s_e62a851657e136::t_35f2ac5fdfe365 1-78
+src/profile-symbols.typ
+  s_e62a851657e136::t_adcb47a804c7ff 1-18
+src/revisions.typ
+  s_e62a851657e136::t_f50266b7390fd8 1-130
+src/roof.typ
+  s_e62a851657e136::t_693ee079a7d018 1-45
+src/stages.typ
+  s_e62a851657e136::t_20dc0bac96b407 1-103
+src/symbols.typ
+  s_e62a851657e136::t_e5628250c7477b 1-76
+src/text.typ
+  s_e62a851657e136::t_1869d061a548fd 1-21
+src/theme.typ
+  s_e62a851657e136::t_f47e22f83da5d7 1-21
+tests/invalid.json
+  s_e62a851657e136::t_56b3d3a08d76ed 1-132
+tests/layout.typ
+  s_e62a851657e136::t_a19b4f56370535 1-62
+tests/model.typ
+  s_e62a851657e136::t_c2797c9a63f514 1-42
+tests/profiles.typ
+  s_e62a851657e136::t_d9992385991138 1-13
+tests/revision-render.typ
+  s_e62a851657e136::t_e90da2a2d42415 1-9
+tests/stages.typ
+  s_e62a851657e136::t_18337f6ae3ff25 1-67
+tests/symbols.typ
+  s_e62a851657e136::t_1ec0e24cc02a18 1-5
+tools/build_docs.py
+  s_e62a851657e136::t_4373c7f6ee5157 1-91
+tools/build_examples.py
+  s_e62a851657e136::t_a86c79040ab539 1-20
+tools/install_local.py
+  s_e62a851657e136::t_d651f60f72ba79 1-33
+tools/package.py
+  s_e62a851657e136::t_6cf0b00f67d8b7 1-40
+tools/test.py
+  s_e62a851657e136::t_ea1f84a00ec0d6 1-59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "9d510f6532bf7009794756164eee9f7fe3f9d665",
+  "prompts": {},
+  "humans": {
+    "h_745d560834e283": {
+      "author": "Tycho Tatitscheff <tychot@bam.tech>"
+    }
+  },
+  "sessions": {
+    "s_e62a851657e136": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "01a08659-994f-75e1-a0e8-3d392ed61bed",
+        "model": "unknown"
+      },
+      "human_author": "Tycho Tatitscheff <tychot@bam.tech>"
+    }
+  }
+}

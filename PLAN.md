@@ -8,4 +8,4 @@ Spec: [DESIGN.md](DESIGN.md). Native Typst 0.15.1; Python standard-library build
 - [x] Compile visual fixtures for dense labels, small charts, all change states and overlapping series; inspect PDF and SVG output.
 - [x] Develop the coffee needs/functions/components example and record assumptions and source attribution in its design notes.
 - [x] Write installation, Typst quickstart, API and maintenance docs, generate HTML and set up test/Pages workflows.
-- [ ] Commit, push, deploy Pages and submit the verified Typst bundle.
+- [x] Commit and push the public repository; deploy GitHub Pages; submit [Typst registry PR #5808](https://github.com/typst/packages/pull/5808). Registry acceptance remains external.

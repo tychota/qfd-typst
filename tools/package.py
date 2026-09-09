@@ -33,6 +33,7 @@ def main() -> None:
         text = text.replace('](' + prefix, '](' + base + prefix)
     for name in ("CONTEXT.md", "CONTRIBUTING.md", "DESIGN.md", "PLAN.md"):
         text = text.replace("](" + name + ")", "](" + base + name + ")")
+    text = text.replace(base + "docs/site/assets/", "https://raw.githubusercontent.com/tychota/qfd-typst/main/docs/site/assets/")
     readme.write_text(text)
     print(destination)
 

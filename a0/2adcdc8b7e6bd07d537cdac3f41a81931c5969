@@ -1,0 +1,19 @@
+tools/package.py
+  s_e62a851657e136::t_4020d8f33d6a38 5,28-35,37-38,44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "a02adcdc8b7e6bd07d537cdac3f41a81931c5969",
+  "prompts": {},
+  "sessions": {
+    "s_e62a851657e136": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "01a08659-994f-75e1-a0e8-3d392ed61bed",
+        "model": "unknown"
+      },
+      "human_author": "Tycho Tatitscheff <tychot@bam.tech>"
+    }
+  }
+}

@@ -54,7 +54,7 @@ Theme defaults: Plex Sans/Plex Serif with built-in fallbacks, `9pt` font, dark i
   label-padding: 2.5mm, header-height: auto, width: auto)
 ```
 
-Alternative styles may override `color`, `marker` (`circle`, `triangle`, `square`, `diamond`, `pentagon`), `dash`, `thickness`, `marker-size`, `marker-thickness`, `fill-lighten`, and `emphasize`. Styles cycle after the five defaults; supply explicit distinctions for larger comparisons.
+Alternative styles may override `color`, `marker` (`circle`, `triangle`, `square`, `diamond`, `pentagon`), `dash`, `thickness`, `marker-size`, `marker-thickness`, `fill-lighten`, and `emphasize`. Styles cycle after the five defaults; supply explicit distinctions for larger comparisons. The [palette reference](PALETTE.md) records the Okabe–Ito provenance, the custom darker defaults, white-background contrast, and the distinction from revision colors.
 
 Staggering finds nearby points, assigns bounded vertical lanes, and improves their order by counting crossings on both adjacent row transitions. Marker size may decrease when many points tie. The score coordinate is never jittered. Missing observations are never bridged.
 

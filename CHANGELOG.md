@@ -5,7 +5,8 @@
 - Native Typst QFD matrices, named stages, and priority deployment.
 - Revision comparisons with full added/removed row and column bands, readable cell changes, and stable entity identities.
 - Configurable layout, Plex typography, direction indicators, correlation symbols, and staggered comparison markers.
-- Capsule-coffee baseline and a milk-drink extension traced through needs, functions, and components.
+- Compact manual-wand and automatic refrigerated-milk alternatives, plus the full capsule-coffee deployment.
+- A documented darker profile palette with equal strokes, pale marker fills, and shape/dash identifiers.
 - Installation guide, API reference, and illustrated documentation.
 
 Typst Universe submission is awaiting review: https://github.com/typst/packages/pull/5808.

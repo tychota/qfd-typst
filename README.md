@@ -86,11 +86,13 @@ Stable IDs identify entities; labels are editable text. Relations remain one-bas
 
 Additions have pale green backgrounds, removals pale red, and changes pale yellow. Dark symbols and +/−/~ annotations supplement color. Reordering IDs creates no false edits. Removed relationships remain visible but contribute zero to current priorities. Diff views do not currently support competitive profiles or custom basements; compare source stages without those options.
 
-The worked revision adds refrigerated milk storage and automatic steaming to the capsule-coffee baseline. Read existing and new needs row by row, then follow the revised functions into shared and added components. See the [change rationale](examples/COFFEE.md#deploying-a-new-capability-milk-drinks).
+The compact walkthrough adds a steam wand to a coffee-only baseline: one new milk-drink need, two new functions, and effects on existing cleaning, space, and safety responsibilities. A second option adds automatic metering and refrigerated milk storage. Both use the same compact baseline; the full coffee study remains a separate detailed example. See the [option comparison](examples/COFFEE.md#compact-walkthrough-two-milk-options).
 
-![Milk drinks: needs to functions revision](docs/site/assets/revisions.svg)
+![Steam wand: needs to functions revision](docs/site/assets/revisions.svg)
 
-![Milk drinks: functions to components revision](docs/site/assets/revision-components.svg)
+![Steam wand: functions to components revision](docs/site/assets/revision-components.svg)
+
+See the [profile palette reference](docs/PALETTE.md) for color provenance, contrast values, and customization.
 
 ## Typography and layout
 

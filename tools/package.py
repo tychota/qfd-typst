@@ -2,6 +2,7 @@
 """Build a small registry bundle from an explicit public-file allowlist."""
 from pathlib import Path
 import shutil
+import subprocess
 import tomllib
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,16 +25,23 @@ def main() -> None:
     if destination.exists():
         shutil.rmtree(destination)
     copy_files(destination, package_files())
-    # Registry README links resolve to source-hosted assets excluded from the bundle.
+    # Freeze external documentation at the source revision used for this bundle.
+    revision = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True,
+    ).strip()
+    specification = f'@preview/{package["name"]}:{package["version"]}'
+    for example in (destination / "examples").glob("*.typ"):
+        example.write_text(example.read_text().replace('"../lib.typ"', f'"{specification}"'))
+    # Repository examples stay directly compilable; registry examples use their package.
     readme = destination / "README.md"
-    base = package["repository"] + "/blob/main/"
-    text = readme.read_text()
+    base = package["repository"] + f"/blob/{revision}/"
+    text = readme.read_text().replace('"lib.typ"', f'"{specification}"')
     for prefix in ("docs/", "examples/"):
         text = text.replace('src="' + prefix, 'src="' + base + prefix)
         text = text.replace('](' + prefix, '](' + base + prefix)
     for name in ("CONTEXT.md", "CONTRIBUTING.md", "DESIGN.md", "PLAN.md"):
         text = text.replace("](" + name + ")", "](" + base + name + ")")
-    text = text.replace(base + "docs/site/assets/", "https://raw.githubusercontent.com/tychota/qfd-typst/main/docs/site/assets/")
+    text = text.replace(base + "docs/site/assets/", f"https://raw.githubusercontent.com/tychota/qfd-typst/{revision}/docs/site/assets/")
     readme.write_text(text)
     print(destination)
 

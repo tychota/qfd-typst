@@ -1,0 +1,20 @@
+PLAN.md
+  h_745d560834e283 11
+README.md
+  h_745d560834e283 107,129-132
+docs/site/index.html
+  h_745d560834e283 61
+tools/package.py
+  h_745d560834e283 36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "4f1e8a9d9b71ebac5c90ecef936befa5f877eb1a",
+  "prompts": {},
+  "humans": {
+    "h_745d560834e283": {
+      "author": "Tycho Tatitscheff <tychot@bam.tech>"
+    }
+  }
+}

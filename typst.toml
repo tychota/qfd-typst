@@ -1,0 +1,10 @@
+[package]
+name = "qfd"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["QFD contributors"]
+license = "MIT"
+description = "Configurable House of Quality diagrams with relationships, correlation roofs, weighted priorities, and competitive profiles."
+compiler = "0.15.1"
+keywords = ["qfd", "house-of-quality", "requirements", "matrix"]
+exclude = ["tests", "tools", "build", ".github"]

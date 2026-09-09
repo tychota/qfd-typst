@@ -1,0 +1,57 @@
+.gitattributes
+  s_12e897ca4ee10b::t_f080400172b6aa 1-3
+CHANGELOG.md
+  s_12e897ca4ee10b::t_6192fb24c9ca81 1-11
+README.md
+  s_12e897ca4ee10b::t_9641eca4f9adec 89-93
+docs/API.md
+  s_12e897ca4ee10b::t_b21e97e428d958 75-77
+docs/site/assets/revision-components.svg
+  s_12e897ca4ee10b::t_af5c42ae31da30 1
+docs/site/assets/revisions.svg
+  s_12e897ca4ee10b::t_0559379e3355eb 1
+docs/site/index.html
+  s_12e897ca4ee10b::t_dd9bf2a9e66994 103-104
+examples/COFFEE.md
+  s_12e897ca4ee10b::t_158d76584e67e0 51-53,57-95
+examples/milk-data.typ
+  s_e62a851657e136::t_6f7173ca29a6f7 1-88
+examples/revision-components.typ
+  s_12e897ca4ee10b::t_7d2a9790e257c0 1-11
+examples/revisions.typ
+  s_12e897ca4ee10b::t_2995c1f2e5cf75 2,5,7,9,11
+src/change-display.typ
+  s_12e897ca4ee10b::t_519ea188939b2e 19-31
+src/matrix-panel.typ
+  s_12e897ca4ee10b::t_e61cc6bad938b7 5,41
+tests/revision-render.typ
+  s_12e897ca4ee10b::t_6587282508c1c1 10-23
+tools/build_examples.py
+  s_12e897ca4ee10b::t_96cd92f82d89cc 13,15
+tools/test.py
+  s_12e897ca4ee10b::t_31da2942068dd3 48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "8cb5edc677e47faee7d02b631fd5503236556f0d",
+  "prompts": {},
+  "sessions": {
+    "s_12e897ca4ee10b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a08659-994f-75e1-a0e8-3d392ed61bed",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Tycho Tatitscheff <tychot@bam.tech>"
+    },
+    "s_e62a851657e136": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "01a08659-994f-75e1-a0e8-3d392ed61bed",
+        "model": "unknown"
+      },
+      "human_author": "Tycho Tatitscheff <tychot@bam.tech>"
+    }
+  }
+}

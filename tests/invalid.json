@@ -1,0 +1,132 @@
+[
+  [
+    "empty-whats",
+    "#qfd(hows: (\"H\",), width: auto)",
+    "whats must be a nonempty"
+  ],
+  [
+    "empty-hows",
+    "#qfd(whats: (\"W\",), width: auto)",
+    "hows must be a nonempty"
+  ],
+  [
+    "duplicate-relation",
+    "#qfd-matrix(1, 1, relations: ((1, 1, \"S\"), (1, 1, \"W\")))",
+    "duplicate relation"
+  ],
+  [
+    "row-zero",
+    "#qfd-matrix(1, 1, relations: ((0, 1, \"S\"),))",
+    "row index out of bounds"
+  ],
+  [
+    "column-high",
+    "#qfd-matrix(1, 1, relations: ((1, 2, \"S\"),))",
+    "column index out of bounds"
+  ],
+  [
+    "unknown-strength",
+    "#qfd-matrix(1, 1, relations: ((1, 1, \"X\"),))",
+    "relation must be"
+  ],
+  [
+    "negative-importance",
+    "#qfd-weights((-1,), ((9,),))",
+    "importance values must"
+  ],
+  [
+    "ragged-matrix",
+    "#qfd-weights((1, 1), ((9,), (3, 1)))",
+    "one column per HOW"
+  ],
+  [
+    "importance-length",
+    "#qfd-weights((1, 2), ((9,),))",
+    "one number per WHAT"
+  ],
+  [
+    "self-correlation",
+    "#qfd-correlation-point(1, 1)",
+    "cannot correlate with itself"
+  ],
+  [
+    "mirrored-duplicate",
+    "#qfd(whats: (\"A\",), hows: (\"X\", \"Y\"), correlations: ((1, 2, \"+\"), (2, 1, \"-\")), width: auto)",
+    "duplicate correlation"
+  ],
+  [
+    "bad-correlation-sign",
+    "#qfd(whats: (\"A\",), hows: (\"X\", \"Y\"), correlations: ((1, 2, \"?\"),), width: auto)",
+    "correlation sign must"
+  ],
+  [
+    "score-out-of-range",
+    "#qfd(whats: (\"A\",), hows: (\"X\",), alternatives: ((label: \"A\", scores: (6,)),), width: auto)",
+    "scores must lie within"
+  ],
+  [
+    "score-length",
+    "#qfd(whats: (\"A\",), hows: (\"X\",), alternatives: ((label: \"A\", scores: (1, 2)),), width: auto)",
+    "one score per WHAT"
+  ],
+  [
+    "target-length",
+    "#qfd(whats: (\"A\",), hows: (\"X\",), targets: (), width: auto)",
+    "one entry per HOW"
+  ],
+  [
+    "basement-length",
+    "#qfd(whats: (\"A\",), hows: (\"X\",), basement: ((label: \"A\", values: ()),), width: auto)",
+    "one value per HOW"
+  ],
+  [
+    "mixed-matrix-input",
+    "#qfd(whats: (\"A\",), hows: (\"X\",), matrix: ((9,),), relations: ((1, 1, \"S\"),), width: auto)",
+    "either matrix or relations"
+  ],
+  [
+    "zero-score-range",
+    "#qfd(whats: (\"A\",), hows: (\"X\",), score-range: (0, 0), width: auto)",
+    "increasing integer endpoints"
+  ],
+  [
+    "negative-size",
+    "#qfd(whats: (\"A\",), hows: (\"X\",), cell-size: -1cm, width: auto)",
+    "positive lengths"
+  ],
+  [
+    "unknown-label-key",
+    "#qfd(whats: (\"A\",), hows: (\"X\",), labels: (typo: \"A\"), width: auto)",
+    "unknown label key"
+  ],
+  [
+    "unknown-direction",
+    "#qfd(whats:(\"A\",),hows:(\"B\",),directions:(\"up\",),width:auto)",
+    "directions must"
+  ],
+  [
+    "negative-padding",
+    "#qfd(whats:(\"A\",),hows:(\"B\",),label-padding:-1mm,width:auto)",
+    "padding and gaps"
+  ],
+  [
+    "unknown-theme",
+    "#qfd(whats:(\"A\",),hows:(\"B\",),theme:(wrong:1),width:auto)",
+    "unknown theme key"
+  ],
+  [
+    "invalid-spread",
+    "#qfd(whats:(\"A\",),hows:(\"B\",),marker-spread:0.5,width:auto)",
+    "marker-spread must"
+  ],
+  [
+    "duplicate-id",
+    "#qfd-stage(rows:((id:\"a\",label:\"A\"),(id:\"a\",label:\"B\")),columns:((id:\"x\",label:\"X\"),))",
+    "duplicate row ID"
+  ],
+  [
+    "unweighted-deployment",
+    "#qfd-deploy(qfd-stage(rows:((id:\"a\",label:\"A\"),),columns:((id:\"x\",label:\"X\"),)),columns:((id:\"c\",label:\"C\"),))",
+    "explicit importance"
+  ]
+]

@@ -1,3 +1,4 @@
+#import "theme.typ": qfd-palette
 // QFD data normalization. All public row/column indices are ONE-BASED.
 // Internal helpers intentionally have an underscore prefix.
 
@@ -51,38 +52,9 @@
   })
 }
 
-// Absolute weights: sum_i importance[i] * relation[i][j].
-// Relative weights are percentages in 0..100, not Typst ratio values.
-// Independent rounding is deliberate: rounded percentages may not sum to 100.
-#let qfd-weights(importance, matrix, digits: 0) = {
-  assert(type(matrix) == array and matrix.len() > 0,
-    message: "qfd: matrix must not be empty")
-  assert(type(matrix.first()) == array and matrix.first().len() > 0,
-    message: "qfd: matrix must have at least one column")
-  let rows = matrix.len()
-  let columns = matrix.first().len()
-  let matrix = _dense(matrix, rows, columns)
-  assert(type(importance) == array and importance.len() == rows,
-    message: "qfd: importance must have one number per WHAT")
-  assert(importance.all(_nonnegative),
-    message: "qfd: importance values must be finite, nonnegative numbers")
-  assert(type(digits) == int and digits >= 0 and digits <= 10,
-    message: "qfd: digits must be an integer from 0 to 10")
-  let absolute = range(columns).map(c =>
-    range(rows).map(r => importance.at(r) * matrix.at(r).at(c)).sum())
-  let total = absolute.sum()
-  let relative = absolute.map(v => if total == 0 { 0 } else { 100 * v / total })
-  (
-    absolute: absolute,
-    total: total,
-    relative: relative,
-    rounded: relative.map(v => calc.round(v, digits: digits)),
-  )
-}
-
 // Logical coordinates relative to the lower-left corner of the roof.
 // The drawing converts y-up here to Typst's y-down coordinates.
-#let qfd-correlation-point(i, j, columns: none) = {
+#let _correlation-point(i, j, columns: none) = {
   assert(type(i) == int and type(j) == int and i >= 1 and j >= 1,
     message: "qfd: correlation indices must be positive integers")
   assert(i != j, message: "qfd: a HOW cannot correlate with itself")
@@ -105,7 +77,7 @@
     assert(type(entry) == array and entry.len() == 3,
       message: "qfd: each correlation must be an (i, j, sign) triple")
     let (i, j, sign) = entry
-    let point = qfd-correlation-point(i, j, columns: columns)
+    let point = _correlation-point(i, j, columns: columns)
     assert(sign in ("++", "+", "-", "--"),
       message: "qfd: correlation sign must be ++, +, -, or --")
     let a = calc.min(i, j)
@@ -117,16 +89,6 @@
   }
   result
 }
-
-// Five source-palette styles. Additional alternatives cycle these defaults;
-// callers can provide explicit color, marker, dash, and thickness per series.
-#let qfd-palette = (
-  (color: rgb("0072B2"), marker: "circle", dash: "solid", thickness: 1.2pt, marker-size: 6.5pt, marker-thickness: 1.1pt, fill-lighten: 45%),
-  (color: rgb("D55E00"), marker: "triangle", dash: "dashed", thickness: 0.8pt, marker-size: 7pt, marker-thickness: 0.9pt, fill-lighten: 45%),
-  (color: rgb("009E73"), marker: "square", dash: "dotted", thickness: 0.8pt, marker-size: 5.5pt, marker-thickness: 0.9pt, fill-lighten: 45%),
-  (color: rgb("CC79A7"), marker: "diamond", dash: "dash-dotted", thickness: 0.8pt, marker-size: 7pt, marker-thickness: 1pt, fill-lighten: 50%),
-  (color: rgb("56B4E9"), marker: "pentagon", dash: (4pt, 2pt, 0.8pt, 2pt, 0.8pt, 2pt), thickness: 0.7pt, marker-size: 5.5pt, marker-thickness: 0.8pt, fill-lighten: 60%),
-)
 
 #let _alternatives(values, rows, limits) = {
   assert(type(values) == array, message: "qfd: alternatives must be an array")

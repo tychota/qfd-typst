@@ -1,10 +1,12 @@
 [package]
-name = "qfd"
+name = "qualitree"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["QFD contributors"]
+authors = ["Tycho Tatitscheff", "Julien Calixte"]
 license = "MIT"
-description = "Configurable House of Quality diagrams with relationships, correlation roofs, weighted priorities, and competitive profiles."
+description = "Draw and compare cascading Houses of Quality."
 compiler = "0.15.1"
-keywords = ["qfd", "house-of-quality", "requirements", "matrix"]
-exclude = ["tests", "tools", "build", ".github"]
+repository = "https://github.com/tychota/qfd-typst"
+homepage = "https://tychota.github.io/qfd-typst/"
+keywords = ["qfd", "house-of-quality", "requirements", "matrix", "functional-analysis"]
+exclude = ["/tests", "/tools", "/build", "/.github", "/docs", "/fonts", "/PLAN.md", "/DESIGN.md"]

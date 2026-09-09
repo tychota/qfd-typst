@@ -11,6 +11,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 import shutil
 from urllib.parse import unquote, urlsplit
+from highlight import highlight_html
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "docs" / "site"
@@ -83,6 +84,8 @@ def main() -> None:
         raise SystemExit("Output must be separate from the documentation source.")
     destination.mkdir(parents=True, exist_ok=True)
     shutil.copytree(SOURCE, destination, dirs_exist_ok=True)
+    for page in destination.rglob("*.html"):
+        page.write_text(highlight_html(page.read_text(encoding="utf-8")), encoding="utf-8")
     (destination / ".nojekyll").touch()
     print(f"Documentation built: {destination}")
 

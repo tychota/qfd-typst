@@ -16,6 +16,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 
 def compile_file(compiler: str, source: Path, output: Path) -> None:
+    output.parent.mkdir(parents=True, exist_ok=True)
     result = subprocess.run([compiler, "compile", "--root", str(ROOT),
         "--font-path", str(ROOT / "fonts"), "--ignore-system-fonts", str(source), str(output)],
         capture_output=True, text=True)
@@ -45,7 +46,7 @@ def main() -> int:
             if result.returncode == 0 or message not in result.stderr:
                 raise RuntimeError(f"{name}: expected rejection containing {message!r}:\n{result.stderr}")
     print(f"PASS {len(cases)} rejected-input cases")
-    for name in ("minimal", "espresso", "components", "revisions", "revision-components", "milk-automatic", "milk-detailed", "report", "profiles"):
+    for name in ("minimal", "espresso", "components", "revisions", "revision-components", "milk-automatic", "milk-detailed", "report", "profiles", "fr/revisions", "fr/revision-components", "fr/milk-automatic"):
         source = ROOT / "examples" / f"{name}.typ"
         compile_file(compiler, source, build / f"{name}.pdf")
     print("PASS all public examples")

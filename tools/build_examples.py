@@ -14,6 +14,10 @@ def main() -> None:
         for extension in (("pdf",) if name in ("report", "milk-automatic", "milk-detailed") else ("pdf", "svg")):
             destination = (assets if name in ("espresso", "components", "revisions", "revision-components", "milk-automatic", "milk-detailed", "profiles") else output) / f"{name}.{extension}"
             compile_file("typst", ROOT / "examples" / f"{name}.typ", destination)
+    for name in ("revisions", "revision-components", "milk-automatic"):
+        for extension in (("pdf",) if name == "milk-automatic" else ("pdf", "svg")):
+            compile_file("typst", ROOT / "examples" / "fr" / f"{name}.typ",
+                assets / "fr" / f"{name}.{extension}")
     print("Rendered PDF and SVG examples")
 
 if __name__ == "__main__":

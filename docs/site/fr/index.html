@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Qualitree : matrices QFD natives pour Typst, déploiement des priorités et comparaison des évolutions de conception.">
+  <meta name="theme-color" content="#183c4a">
+  <title>Qualitree — Des besoins aux choix de conception</title>
+  <link rel="alternate" hreflang="en" href="../index.html">
+  <link rel="alternate" hreflang="fr" href="index.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../site.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<header class="masthead">
+  <a class="brand" href="#top" aria-label="Accueil Qualitree"><img src="../assets/logo.svg" width="38" height="38" alt=""><span>qualitree</span></a>
+  <div class="masthead-right"><a class="language-switch" href="../index.html" lang="en" hreflang="en" aria-label="Read the documentation in English">English</a><span class="version">v0.1.0</span><a href="https://github.com/tychota/qfd-typst">GitHub <span aria-hidden="true">↗</span></a></div>
+</header>
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Déploiement de la fonction qualité · Typst natif</p>
+      <h1 id="hero-title">Des besoins<br>aux <em>choix de conception.</em></h1>
+      <p class="hero-deck">Relier les exigences. Transmettre les priorités. Comprendre les changements.</p>
+      <p class="hero-description">Qualitree transforme vos hypothèses de conception en maisons de la qualité précises et reproductibles. Pour garder le raisonnement au plus près du dessin.</p>
+      <div class="hero-actions"><a class="button" href="#quickstart">Créer une première matrice <span aria-hidden="true">→</span></a><a class="text-link" href="#examples">Explorer les exemples</a></div>
+      <p class="hero-note">Typst 0.15.1+ <span aria-hidden="true">/</span> Aucune dépendance à un autre package à l’exécution</p>
+    </div>
+    <div class="hero-art"><img src="../assets/hero.png" alt="" fetchpriority="high"><p>Besoins → fonctions → composants</p></div>
+  </section>
+  <div class="introduction"><p>Une maison de la qualité rend les compromis visibles.</p><p>Qualitree réunit matrice, corrélations, cibles et variantes dans un même document. Les identifiants stables relient les étapes et permettent de comparer leurs évolutions.</p></div>
+  <div class="guide-layout">
+    <aside class="guide-nav" aria-label="Navigation du guide"><p class="eyebrow">Le guide pratique</p><nav><a href="#quickstart">01 <span>Démarrage</span></a><a href="#api">02 <span>Référence de l’API</span></a><a href="#examples">03 <span>Exemples</span></a><a href="#methodology">04 <span>Méthodologie</span></a><a href="#changes">05 <span>Nouveautés</span></a><a href="#contributing">06 <span>Contribuer</span></a></nav><a class="source-link" href="https://github.com/tychota/qfd-typst/tree/main/examples">Sources des exemples <span aria-hidden="true">↗</span></a></aside>
+    <div class="guide-content">
+      <section id="quickstart" class="guide-section" aria-labelledby="quickstart-title">
+        <p class="eyebrow">01 / Démarrage</p><h2 id="quickstart-title">Une petite matrice.<br>Un point de départ utile.</h2>
+        <p class="lead">Commencez par quelques besoins et des réponses mesurables. Ajoutez ensuite le toit, les comparaisons et les étapes de déploiement selon les besoins du modèle.</p>
+        <h3>Installer Typst</h3><p>Utilisez Typst <strong>0.15.1 ou une version ultérieure</strong>. Sur macOS, installez-le avec Homebrew. Sur les autres plateformes, téléchargez un exécutable depuis les <a href="https://github.com/typst/typst/releases">versions officielles de Typst</a>.</p>
+        <div class="code-block"><div class="code-label">Terminal</div><pre><code>brew install typst
+typst --version</code></pre></div>
+        <h3>Compiler un exemple du dépôt</h3><p>Clonez le dépôt puis lancez le compilateur depuis sa racine. L’option <code>--root</code> permet aux exemples d’importer le package situé dans le répertoire parent. L’option <code>--font-path</code> charge les polices IBM Plex Sans et Serif fournies.</p>
+        <div class="code-block"><div class="code-label">Terminal</div><pre><code>git clone https://github.com/tychota/qfd-typst.git
+cd qfd-typst
+mkdir -p build
+typst compile --root . --font-path fonts examples/fr/revisions.typ build/revisions-fr.pdf</code></pre></div>
+        <h3>Écrire une première maison de la qualité</h3><p>Enregistrez ce code dans <code>examples/premiere.typ</code>. Chaque ligne correspond à un besoin, chaque colonne à une réponse technique. Les noms des paramètres de l’API restent en anglais ; les libellés sont libres.</p>
+        <div class="code-block"><div class="code-label">examples/premiere.typ</div><pre><code class="language-typst">#import "../lib.typ": qfd
+#set page(width: 24cm, height: auto, margin: 1cm)
+
+#qfd(
+  whats: ("Préparer facilement", "Nettoyer facilement"),
+  hows: ("Temps de préparation", "Pièces à laver"),
+  importance: (5, 3),
+  matrix: ((9, 1), (1, 9)),
+  targets: ("≤ 2 min", "≤ 3 pièces"),
+  labels: (whats: [Besoins], hows: [Réponses techniques]),
+)</code></pre></div>
+        <div class="code-block"><div class="code-label">Terminal</div><pre><code>typst compile --root . --font-path fonts examples/premiere.typ build/premiere.pdf</code></pre></div>
+        <details><summary>Utiliser le package dans un autre projet</summary><div><p>Copiez <code>lib.typ</code> et le dossier <code>src/</code> dans votre projet, puis importez le fichier par son chemin relatif. Vous pouvez aussi placer le package complet dans <code>typst/packages/local/qualitree/0.1.0/</code>, sous le répertoire de données Typst de votre système :</p><ul><li>macOS : <code>~/Library/Application Support/typst/packages/local/qualitree/0.1.0/</code></li><li>Linux : <code>$XDG_DATA_HOME/typst/packages/local/qualitree/0.1.0/</code> (généralement <code>~/.local/share/…</code>)</li><li>Windows : <code>%APPDATA%\typst\packages\local\qualitree\0.1.0\</code></li></ul><div class="code-block"><div class="code-label">Typst</div><pre><code class="language-typst">#import "@local/qualitree:0.1.0": qfd</code></pre></div><p>Le package local doit contenir <code>typst.toml</code>, <code>lib.typ</code> et <code>src/</code>. La <a href="https://github.com/typst/packages/pull/5808">demande d’inscription à Typst Universe est ouverte</a> ; l’import <code>@preview</code> ne sera disponible qu’après acceptation.</p></div></details>
+      </section>
+      <section id="api" class="guide-section" aria-labelledby="api-title">
+        <p class="eyebrow">02 / Référence de l’API</p><h2 id="api-title">Une matrice.<br>Plusieurs façons de raisonner.</h2>
+        <p class="lead"><code>qfd</code> dessine une maison de la qualité à partir de données positionnelles. Les fonctions de déploiement ajoutent des entités nommées, la transmission des priorités et la comparaison des versions.</p>
+        <h3><code>qfd(…)</code></h3><p>Utilisez des arguments nommés, avec une matrice complète <code>matrix</code> ou des relations éparses <code>relations</code>. Les intensités sont <strong>0, 1, 3 et 9</strong> : aucune, faible, moyenne et forte.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Paramètres principaux de l’API"><table><thead><tr><th>Argument</th><th>Signification</th></tr></thead><tbody>
+          <tr><th scope="row"><code>whats</code></th><td>Tableau non vide des libellés de lignes : besoins, fonctions ou autres exigences.</td></tr>
+          <tr><th scope="row"><code>hows</code></th><td>Tableau non vide des libellés de colonnes : réponses à ces exigences.</td></tr>
+          <tr><th scope="row"><code>importance</code></th><td>Un poids positif ou nul par ligne. Active le calcul des priorités des colonnes.</td></tr>
+          <tr><th scope="row"><code>matrix</code></th><td>Tableau organisé par lignes, avec une intensité pour chaque paire ligne/colonne.</td></tr>
+          <tr><th scope="row"><code>relations</code></th><td>Triplets <code>(ligne, colonne, intensité)</code>, avec des indices commençant à 1. Une cellule omise vaut zéro.</td></tr>
+          <tr><th scope="row"><code>targets</code></th><td>Une cible par colonne, affichée sous la matrice.</td></tr>
+          <tr><th scope="row"><code>correlations</code></th><td>Entrées du toit <code>(colonne, colonne, signe)</code>, indices à partir de 1. Signes possibles : <code>"++"</code>, <code>"+"</code>, <code>"-"</code>, <code>"--"</code>.</td></tr>
+          <tr><th scope="row"><code>alternatives</code></th><td>Enregistrements tels que <code>(label: "Café", scores: (4, 3))</code>, avec une note par ligne. Une valeur manquante s’écrit <code>none</code>. L’échelle <code>score-range</code> vaut <code>(0, 5)</code> par défaut.</td></tr>
+        </tbody></table></div>
+        <h3>Régler le dessin</h3><p>Choisissez <code>font</code> et <code>font-size</code>. La hauteur des lignes et des en-têtes s’adapte automatiquement au texte ; vous pouvez aussi fixer des dimensions. Ajustez <code>what-width</code>, <code>cell-size</code> et les marges internes pour les matrices denses. Les options <code>show-roof</code>, <code>show-basement</code> et <code>show-competitive</code> contrôlent les panneaux visibles.</p><p>Les valeurs par défaut et les règles de validation figurent dans la <a href="https://github.com/tychota/qfd-typst/blob/main/docs/API.md">référence complète en anglais</a>.</p>
+        <div class="api-entry"><h3><code>qfd-stage(…)</code><span>Définir une étape nommée</span></h3><p>Chaque ligne et colonne possède un identifiant stable et un libellé indépendant. Le texte peut évoluer sans modifier l’identité du besoin ou du composant. Une étape relie besoins et fonctions, fonctions et composants, ou deux autres ensembles pertinents. Le résultat est un dictionnaire à transmettre à <code>qfd</code>.</p>
+        <div class="code-block"><div class="code-label">Typst · identifiants stables</div><pre><code class="language-typst">#import "../lib.typ": qfd, qfd-stage, qfd-deploy, qfd-diff
+
+#let besoins = qfd-stage(
+  rows: (
+    (id: "simple", label: "Préparer facilement", weight: 5),
+    (id: "clean", label: "Nettoyer facilement", weight: 3),
+  ),
+  columns: (
+    (id: "setup", label: "Temps de préparation", direction: "minimize"),
+    (id: "wash", label: "Pièces à laver", direction: "minimize"),
+  ),
+  matrix: ((9, 1), (1, 9)),
+  labels: (whats: [Besoins], hows: [Réponses techniques]),
+)
+#qfd(..besoins)</code></pre></div></div>
+        <div class="api-entry"><h3><code>qfd-deploy(…)</code><span>Transmettre les priorités</span></h3><p>Les colonnes de l’étape précédente deviennent les lignes de la suivante, en conservant leurs identifiants et leurs libellés. Les priorités relatives sont transmises <strong>sans arrondi</strong> : seuls les nombres affichés sont arrondis. Fournissez les nouvelles colonnes et la matrice des relations ; la fonction calcule les poids des lignes.</p></div>
+        <div class="api-entry"><h3><code>qfd-diff(…)</code><span>Comparer deux versions</span></h3><p>Les étapes sont alignées par identifiant pour montrer ajouts, suppressions et modifications, même après un réordonnancement. Les éléments supprimés restent visibles mais ne contribuent plus aux priorités actuelles. Dessinez le résultat avec <code>#qfd(..qfd-diff(avant, apres))</code>. Les deux étapes doivent posséder des poids, ou toutes deux les omettre. La comparaison ne prend pas en charge les profils de variantes ni les lignes de synthèse personnalisées.</p><p class="change-key"><span class="added">+ Ajout</span><span class="removed">− Suppression</span><span class="modified">~ Modification</span></p></div>
+      </section>
+      <section id="examples" class="guide-section" aria-labelledby="examples-title">
+        <p class="eyebrow">03 / Exemples</p><h2 id="examples-title">Que change l’ajout<br>de boissons lactées ?</h2>
+        <p class="lead">Partez d’une machine qui prépare uniquement du café. Ajoutez une buse vapeur. Suivez un nouveau besoin jusqu’aux fonctions, puis aux composants.</p>
+        <p>Ce modèle pédagogique utilise des poids et des relations illustratifs. Lisez chaque ligne de gauche à droite : les nouvelles capacités doivent toujours respecter les besoins existants de nettoyage, d’encombrement et de sécurité.</p>
+        <figure class="example-figure"><a href="../assets/fr/revisions.svg" aria-label="Ouvrir la comparaison des besoins et fonctions"><img src="../assets/fr/revisions.svg" alt="Cinq besoins et cinq fonctions : le lait ajoute le chauffage et la texturation, tout en étendant les responsabilités de nettoyage et de protection." loading="lazy"></a><figcaption><span><strong>01. Un besoin, deux fonctions supplémentaires</strong><br>Les bandes vertes montrent les ajouts. Les besoins existants restent visibles.</span><a href="../assets/fr/revisions.pdf">PDF ↓</a></figcaption></figure>
+        <figure class="example-figure"><a href="../assets/fr/revision-components.svg" aria-label="Ouvrir la comparaison des fonctions et composants"><img src="../assets/fr/revision-components.svg" alt="Les fonctions se déploient vers les composants café existants et les nouveaux composants vapeur, avec des commandes et une protection adaptées." loading="lazy"></a><figcaption><span><strong>02. Les nouvelles pièces affectent les anciennes</strong><br>Suivez le nettoyage et la protection jusqu’aux commandes et au boîtier.</span><a href="../assets/fr/revision-components.pdf">PDF ↓</a></figcaption></figure>
+        <h3>Deux réponses au besoin de boissons lactées</h3><p>Comparez les deux concepts au même état initial. L’option automatique ajoute un besoin de confort : disposer de lait entre les utilisations. Les matrices décrivent des responsabilités de conception, pas un classement fondé sur des performances mesurées.</p>
+        <div class="table-scroll"><table><thead><tr><th scope="col">Choix</th><th scope="col">Buse manuelle et pichet</th><th scope="col">Automatisation et réfrigération</th></tr></thead><tbody>
+          <tr><th scope="row">Préparation</th><td>L’utilisateur remplit et place le pichet ; la vapeur chauffe et texture le lait.</td><td>Un circuit dose le lait dans un mélangeur à vapeur.</td></tr>
+          <tr><th scope="row">Stockage</th><td>La réfrigération du lait reste extérieure à l’appareil.</td><td>Un réservoir réfrigéré intégré assure le stockage.</td></tr>
+          <tr><th scope="row">Contraintes existantes</th><td>Manipulation du pichet, nettoyage de la buse, protection contre la vapeur et place sur le plan de travail.</td><td>Nettoyage du circuit, stockage froid, puissance partagée et encombrement à réévaluer.</td></tr>
+          <tr><th scope="row">Composants</th><td>Générateur de vapeur, buse et pichet ; commandes et protection adaptées.</td><td>Générateur, mélangeur, réservoir froid et circuit lait ; commandes et protection adaptées.</td></tr>
+        </tbody></table></div>
+        <p><a class="text-link" href="../assets/fr/milk-automatic.pdf">Lire les deux matrices de l’option automatique ↗</a></p>
+        <details><summary>Explorer le déploiement détaillé de la machine à café</summary><div><p>L’étude détaillée couvre aussi la température, les cafés successifs, la conservation du café et la collecte des déchets. Ses priorités sont calculées indépendamment de ce modèle simplifié. Les documents détaillés suivants sont en anglais.</p><ul><li><a href="../assets/espresso.pdf">État initial : besoins → fonctions (anglais)</a></li><li><a href="../assets/components.pdf">État initial : fonctions → composants (anglais)</a></li><li><a href="../assets/milk-detailed.pdf">Ajout du lait réfrigéré : les deux étapes complètes (anglais)</a></li></ul></div></details>
+        <p><a class="text-link" href="https://github.com/tychota/qfd-typst/tree/main/examples/fr">Lire et adapter les exemples français ↗</a></p>
+      </section>
+      <section id="palette" class="guide-section" aria-labelledby="palette-title">
+        <p class="eyebrow">Style des profils</p><h2 id="palette-title">Des couleurs<br>au rôle explicite.</h2>
+        <p>Les profils utilisent du bleu, de l’orange brûlé, du vert, du prune et de l’ocre assombris. Des traits de même épaisseur évitent de suggérer une variante préférée. Formes et pointillés complètent la couleur.</p><p>Cette adaptation personnalisée provient d’un sous-ensemble de la palette Okabe–Ito. Chaque contour dépasse un contraste calculé de 4,5:1 sur blanc, sans garantir la distinction de toutes les paires de couleurs. Les fonds verts, rouges et jaunes des comparaisons gardent leur sens propre : ajout, suppression et modification.</p>
+        <p><a href="https://github.com/tychota/qfd-typst/blob/main/docs/PALETTE.md">Origine, mesures de contraste et personnalisation (anglais) ↗</a></p>
+      </section>
+      <section id="methodology" class="guide-section" aria-labelledby="methodology-title">
+        <p class="eyebrow">04 / Méthodologie</p><h2 id="methodology-title">Un raisonnement<br>aussi lisible que le résultat.</h2>
+        <p class="lead">Le QFD structure la discussion sur les priorités. La pertinence du dessin dépend des hypothèses et des éléments qui les étayent.</p>
+        <ol class="method-list"><li><h3>Partir des besoins</h3><p>Décrivez le résultat attendu sans choisir trop tôt une solution. Distinguez les seuils d’acceptation des préférences qui peuvent faire l’objet de compromis.</p></li><li><h3>Nommer les fonctions</h3><p>Une fonction décrit une transformation ou un stockage : chauffer de l’eau, contenir un liquide, appliquer une pression. Un composant réalise cette fonction ; une technologie est une manière possible de le réaliser.</p></li><li><h3>Évaluer les relations</h3><p>Notez la contribution de chaque réponse à chaque besoin. Une cellule vide signifie qu’aucune contribution n’est modélisée. Expliquez les hypothèses importantes dans les notes de conception.</p></li><li><h3>Calculer puis questionner</h3><p>Multipliez chaque intensité par le poids de sa ligne et additionnez par colonne. Les priorités relatives divisent chaque total par la somme des totaux. Si cette somme est nulle, les priorités valent zéro.</p></li><li><h3>Conserver l’historique</h3><p>Gardez les identifiants lorsque les libellés ou l’ordre changent. Comparez les versions et notez les raisons des changements. Étudiez la sensibilité des décisions proches plutôt que de traiter les pourcentages arrondis comme des certitudes.</p></li></ol>
+        <div class="formula" aria-label="La priorité d’une colonne est la somme des produits du poids de chaque ligne par l’intensité de sa relation"><span>Priorité d’une colonne</span><strong>Σ <span>(poids × relation)</span></strong><small>Somme sur toutes les lignes ; les priorités relatives normalisent les totaux.</small></div>
+        <h3>Lectures et sources</h3><p>Les commentaires du code suivent les <a href="https://antirez.com/news/124">conseils d’antirez sur les commentaires et la maintenabilité</a>. Pour le contexte QFD : <a href="https://blogs.ubc.ca/nvdteamb/files/2013/10/7-The-House-of-Quality.pdf">The House of Quality</a>, John R. Hauser et Don Clausing, <cite>Harvard Business Review</cite>, 1988. Ces lectures apportent un cadre méthodologique ; les poids et relations des exemples restent illustratifs.</p>
+      </section>
+      <section id="changes" class="guide-section" aria-labelledby="changes-title">
+        <p class="eyebrow">05 / Nouveautés</p><h2 id="changes-title">Une base<br>à faire évoluer.</h2><div class="release-line"><h3>0.1.0</h3><span>Première version</span></div><ul class="plain-list"><li>Maisons de la qualité natives Typst : relations, toit de corrélations, cibles et profils de variantes.</li><li>Étapes nommées, identifiants stables et transmission des priorités sans arrondi.</li><li>Comparaisons avec bandes d’ajout et de suppression et détails des modifications.</li><li>Dimensions automatiques, typographie, espacement et indicateurs de direction configurables.</li><li>Guide bilingue, code Typst coloré et exemples pédagogiques de machine à café.</li></ul><p>Consultez le <a href="https://github.com/tychota/qfd-typst/blob/main/CHANGELOG.md">journal des versions (anglais)</a> pour le détail des évolutions.</p>
+      </section>
+      <section id="contributing" class="guide-section" aria-labelledby="contributing-title">
+        <p class="eyebrow">06 / Contribuer</p><h2 id="contributing-title">Rester simple.<br>Rendre vérifiable.</h2><p class="lead">Les contributions doivent préserver la séparation entre modèle, calculs, mise en page et dessin.</p><p>Pour signaler un problème, joignez un fichier Typst minimal, la version du compilateur et les résultats attendu et obtenu. Pour un calcul, ajoutez un petit cas numérique ; pour la mise en page, un rendu qui montre la différence.</p><p>Les exemples doivent utiliser des données partageables et correctement attribuées. Explicitez les hypothèses et privilégiez les capacités natives de Typst.</p><div class="contribute-links"><a class="button" href="https://github.com/tychota/qfd-typst/issues">Signaler un problème ↗</a><a class="text-link" href="https://github.com/tychota/qfd-typst/blob/main/CONTRIBUTING.md">Guide de contribution (anglais)</a></div>
+      </section>
+    </div>
+  </div>
+</main>
+<footer><a class="brand" href="#top"><img src="../assets/logo.svg" width="28" height="28" alt=""><span>qualitree</span></a><p>Des relations claires. Des décisions traçables.</p><a href="https://github.com/tychota/qfd-typst">Sources sur GitHub ↗</a></footer>
+<div id="copy-status" class="visually-hidden" role="status" aria-live="polite"></div>
+</body>
+</html>

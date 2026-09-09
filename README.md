@@ -2,6 +2,8 @@
 
 # Qualitree
 
+[Documentation française](https://tychota.github.io/qfd-typst/fr/) · [English documentation](https://tychota.github.io/qfd-typst/)
+
 Draw, connect, and compare Houses of Quality in native Typst. Map **needs → functions → components**, carry priorities between stages, and show design revisions with readable green/red/yellow backgrounds.
 
 [Documentation](https://tychota.github.io/qfd-typst/) · [Coffee example](examples/COFFEE.md) · [API reference](docs/API.md)

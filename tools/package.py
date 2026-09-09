@@ -11,7 +11,7 @@ def runtime_files() -> list[Path]:
     return [ROOT / name for name in ("lib.typ", "typst.toml", "LICENSE")] + sorted((ROOT / "src").glob("*.typ"))
 
 def package_files() -> list[Path]:
-    return runtime_files() + [ROOT / "README.md", ROOT / "CONTEXT.md", ROOT / "CONTRIBUTING.md"] + sorted((ROOT / "examples").glob("*.typ")) + [ROOT / "examples" / "COFFEE.md"]
+    return runtime_files() + [ROOT / "README.md", ROOT / "CONTEXT.md", ROOT / "CONTRIBUTING.md"] + sorted((ROOT / "examples").rglob("*.typ")) + [ROOT / "examples" / "COFFEE.md"]
 
 def copy_files(destination: Path, files: list[Path]) -> None:
     for source in files:
@@ -30,8 +30,8 @@ def main() -> None:
         ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True,
     ).strip()
     specification = f'@preview/{package["name"]}:{package["version"]}'
-    for example in (destination / "examples").glob("*.typ"):
-        example.write_text(example.read_text().replace('"../lib.typ"', f'"{specification}"'))
+    for example in (destination / "examples").rglob("*.typ"):
+        example.write_text(example.read_text().replace('"../lib.typ"', f'"{specification}"').replace('"../../lib.typ"', f'"{specification}"'))
     # Repository examples stay directly compilable; registry examples use their package.
     readme = destination / "README.md"
     base = package["repository"] + f"/blob/{revision}/"

@@ -155,3 +155,10 @@ footer > a:last-child { font-size: .8rem; }
   pre { white-space: pre-wrap; }
   .example-figure, .formula { break-inside: avoid; }
 }
+
+/* A language name stays readable when the compact masthead wraps on phones. */
+.masthead-right { flex-wrap: wrap; }
+.language-switch { font-weight: 500; text-decoration: underline; text-underline-offset: .2em; }
+html[lang="fr"] .hero h1 { font-size: clamp(2.6rem, 4.6vw, 5.4rem); }
+
+.code-label { padding-right: 6.5rem; }

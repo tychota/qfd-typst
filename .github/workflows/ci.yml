@@ -19,6 +19,7 @@ jobs:
           typst-version: 0.15.1
       - run: python3 tools/test.py
       - run: python3 tools/build_examples.py
+      - run: python3 -m unittest discover -s tools/tests
       - run: python3 tools/build_docs.py
       - run: python3 tools/package.py
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3

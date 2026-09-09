@@ -1,0 +1,57 @@
+.github/workflows/ci.yml
+  s_12e897ca4ee10b::t_26d2df5eb48d41 22
+CHANGELOG.md
+  s_12e897ca4ee10b::t_84839c6e7caba6 10
+CONTRIBUTING.md
+  s_12e897ca4ee10b::t_9e810f92ba55fa 54-74
+README.md
+  s_12e897ca4ee10b::t_3d0f23f50f43ad 5-6
+docs/site/assets/fr/revision-components.svg
+  s_12e897ca4ee10b::t_748f6618562c8c 1
+docs/site/assets/fr/revisions.svg
+  s_12e897ca4ee10b::t_b219ca205df3f7 1
+docs/site/fr/index.html
+  s_12e897ca4ee10b::t_3fe1be6d0690f9 1-141
+docs/site/index.html
+  s_12e897ca4ee10b::t_674f479131ea3b 9-10,22,52,63,81
+docs/site/site.js
+  s_12e897ca4ee10b::t_4cd81b30903621 3-18,26-27,31-32,34-35,37
+docs/site/style.css
+  s_12e897ca4ee10b::t_a29426f404a804 158-164
+examples/fr/milk-automatic.typ
+  s_12e897ca4ee10b::t_2074fcf62a05ae 1-15
+examples/fr/milk-data.typ
+  s_12e897ca4ee10b::t_1ed38788fc7693 1-48
+examples/fr/revision-components.typ
+  s_12e897ca4ee10b::t_b79284be431fd2 1-11
+examples/fr/revisions.typ
+  s_12e897ca4ee10b::t_68b4d278b47708 1-11
+tools/build_docs.py
+  s_12e897ca4ee10b::t_2dbca9548bbc3a 14,87-88
+tools/build_examples.py
+  s_12e897ca4ee10b::t_bd055081ab7c33 17-20
+tools/highlight.py
+  s_12e897ca4ee10b::t_e843866403002f 1-37
+tools/package.py
+  s_12e897ca4ee10b::t_b04edd1bac7f70 14,33-34
+tools/test.py
+  s_12e897ca4ee10b::t_c573ee4227512a 19,49
+tools/tests/test_highlight.py
+  s_12e897ca4ee10b::t_e98cc505871873 1-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "006448730a3086aae1259f99e02078630f9951f6",
+  "prompts": {},
+  "sessions": {
+    "s_12e897ca4ee10b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a08659-994f-75e1-a0e8-3d392ed61bed",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Tycho Tatitscheff <tychot@bam.tech>"
+    }
+  }
+}

@@ -72,6 +72,9 @@ Staggering finds nearby points, assigns bounded vertical lanes, and improves the
 
 ## Revisions
 
+Added and removed entities color their entire matrix row or column, including empty cells. An added-row/removed-column intersection stays neutral because it belongs to neither revision. Yellow cell fills indicate changed relationships; a changed label or inherited weight does not paint an otherwise unchanged row yellow.
+
+
 `qfd-diff(before, after)` returns renderer arguments. Both inputs must be named source stages. It aligns identities in after-order, then appends removed identities in before-order. Styling comes from after. It detects labels, weights, targets, directions, relationship strengths, and correlations; alignment also preserves difficulty values.
 
 The result includes `changes.rows`, `changes.columns`, `changes.cells`, `changes.previous-matrix`, historical labels/weights/targets/directions, and correlation entries `(i,j,status,previous,current)`. Status is `unchanged`, `added`, `removed`, or `changed`.

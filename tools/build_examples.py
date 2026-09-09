@@ -10,9 +10,9 @@ def main() -> None:
     output = ROOT / "build" / "examples"
     output.mkdir(parents=True, exist_ok=True)
     assets = ROOT / "docs" / "site" / "assets"
-    for name in ("minimal", "espresso", "components", "revisions", "report", "profiles"):
+    for name in ("minimal", "espresso", "components", "revisions", "revision-components", "report", "profiles"):
         for extension in (("pdf",) if name == "report" else ("pdf", "svg")):
-            destination = (assets if name in ("espresso", "components", "revisions") else output) / f"{name}.{extension}"
+            destination = (assets if name in ("espresso", "components", "revisions", "revision-components") else output) / f"{name}.{extension}"
             compile_file("typst", ROOT / "examples" / f"{name}.typ", destination)
     print("Rendered PDF and SVG examples")
 

@@ -86,7 +86,11 @@ Stable IDs identify entities; labels are editable text. Relations remain one-bas
 
 Additions have pale green backgrounds, removals pale red, and changes pale yellow. Dark symbols and +/−/~ annotations supplement color. Reordering IDs creates no false edits. Removed relationships remain visible but contribute zero to current priorities. Diff views do not currently support competitive profiles or custom basements; compare source stages without those options.
 
-![Revision comparison](docs/site/assets/revisions.svg)
+The worked revision adds refrigerated milk storage and automatic steaming to the capsule-coffee baseline. Read existing and new needs row by row, then follow the revised functions into shared and added components. See the [change rationale](examples/COFFEE.md#deploying-a-new-capability-milk-drinks).
+
+![Milk drinks: needs to functions revision](docs/site/assets/revisions.svg)
+
+![Milk drinks: functions to components revision](docs/site/assets/revision-components.svg)
 
 ## Typography and layout
 
